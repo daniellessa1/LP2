@@ -24,7 +24,7 @@ public class TestDog {
 }
 
 // Ao executar a.move(), b.move() a saída irá imprimir coisas diferentes, porém a assinatura do método é a mesma. 
-// Assim o compilador Java não entende qual método é chamado no momento da compilação.Apenas a JVM decide qual método é chamado em tempo de execução, assim que se dá o polimorfismo com despacho dinâmico.
+// O método é decidido em tempo de execução, isso é polimorfismo com despacho dinâmico. 
 
 
 // fonte: https://www.ti-enxame.com/pt/java/qual-e-diferenca-entre-polimorfismo-dinamico-e-estatico-em-java/1044505034/
