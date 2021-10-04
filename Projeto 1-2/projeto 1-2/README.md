@@ -1,4 +1,4 @@
-# Instruções Do Projeto
+# MANUAL DE INSTRUÇÕES
 
 ## Tecla r - Gera um novo retângulo aleatório na tela;
 ## Tecla e - Gera uma nova elipse aleatória na tela;
