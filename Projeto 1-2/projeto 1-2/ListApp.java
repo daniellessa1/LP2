@@ -20,7 +20,7 @@ class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
     Random rand = new Random();
     Figure focus = null;
-    Color colors[] = {Color.black, Color.blue, Color.cyan, Color.darkGray, Color.gray, Color.green, Color.lightGray, Color.magenta, Color.orange, Color.pink, Color.red, Color.white, Color.yellow};
+    Color colors[] = {Color.black, Color.blue, Color.cyan, Color.gray, Color.green, Color.orange, Color.pink, Color.red, Color.white, Color.yellow};
 
 
 
@@ -44,16 +44,16 @@ class ListFrame extends JFrame {
                         int w = rand.nextInt(200);
                         int h = rand.nextInt(200);
                         if (evt.getKeyChar() == 'r') {
-                            figs.add(new Rect(x,y, w,h,colors[rand.nextInt(13)],colors[rand.nextInt(13)]));
+                            figs.add(new Rect(x,y, w,h,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
 
                         } else if (evt.getKeyChar() == 'e') {
-                            figs.add(new Ellipse(x,y, w,h,colors[rand.nextInt(13)],colors[rand.nextInt(13)]));
+                            figs.add(new Ellipse(x,y, w,h,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
 
                         } else if (evt.getKeyChar() == 'l') {
-                            figs.add(new Line(x,y, w,h,colors[rand.nextInt(13)],colors[rand.nextInt(13)]));
+                            figs.add(new Line(x,y, w,h,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
 
                         } else if (evt.getKeyChar() == 'p') {
-                            figs.add(new Poly(x,y, w,h,colors[rand.nextInt(13)],colors[rand.nextInt(13)]));
+                            figs.add(new Poly(x,y, w,h,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
 
                         } else if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
                             figs.clear();
