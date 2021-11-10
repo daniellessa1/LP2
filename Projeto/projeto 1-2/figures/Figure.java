@@ -4,8 +4,10 @@ import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.geom.Line2D;
 import java.awt.Color;
+import java.io.Serializable;
+import ivisible.IVisible;
 
-public abstract class Figure {
+public abstract class Figure implements IVisible, Serializable {
     public int x, y;
     public int w, h;
     public Color contorno, fundo;
@@ -27,7 +29,4 @@ public abstract class Figure {
     public boolean clicked (int x, int y) {
         return (this.x <= x && (this.x + this.w) >= x && this.y <= y && (this.y + this.h) >= y );       				
     }
-
-    public abstract void paint (Graphics g, Boolean focused);
-    
 }
