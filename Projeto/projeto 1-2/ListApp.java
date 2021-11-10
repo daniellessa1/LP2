@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Color;
-
-
 import figures.*;
+import ivisible.IVisible;
+import botao.Botao;
+
 
 class ListApp {
     public static void main (String[] args) {
@@ -18,21 +19,47 @@ class ListApp {
 class ListFrame extends JFrame {
     private static final long serialVersionUID = 1L;
     ArrayList<Figure> figs = new ArrayList<Figure>();
+    ArrayList<Botao> buts = new ArrayList<Botao>();
     Random rand = new Random();
     Figure focus = null;
+    Botao focus_button = null;
     Color colors[] = {Color.black, Color.blue, Color.cyan, Color.gray, Color.green, Color.orange, Color.pink, Color.red, Color.white, Color.yellow};
 
 
 
 
     ListFrame () {
+        
+        buts.add(new Botao(1,new Rect(0,0,0,0,Color.BLACK, Color.BLACK)));
+        buts.add(new Botao(2,new Ellipse(0,0,0,0,Color.BLACK, Color.BLACK)));
+        buts.add(new Botao(3,new Poly(0,0,0,0,Color.BLACK, Color.BLACK)));
+        buts.add(new Botao(4, new Line(0,0,0,0, Color.BLACK,Color.WHITE)));
+
+        try {
+            FileInputStream f = new FileInputStream("proj.bin");
+            ObjectInputStream o = new ObjectInputStream(f);
+            this.figs = (ArrayList<Figure>) o.readObject();
+            o.close();
+        } catch (Exception x) {
+            System.out.println("Erro!, não foi possivel abrir o arquivo" +x);
+        }
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+                    try {
+                        FileOutputStream f = new FileOutputStream("proj.bin");
+                        ObjectOutputStream o = new ObjectOutputStream(f);
+                        o.writeObject(figs);
+                        o.flush();
+                        o.close();
+                    } catch (Exception x) {
+                        System.out.println("Erro!, não foi possivel criar o arquivo" +x);
+                    }
                     System.exit(0);
                 }
             }
         );
+
 
         this.addKeyListener (
             new KeyAdapter() {
@@ -116,6 +143,28 @@ class ListFrame extends JFrame {
         this.addMouseListener(
         	new MouseAdapter() {
         		public void mousePressed(MouseEvent evt) {
+                    if (focus_button!= null && !(evt.getX() >= 0 && evt.getX() <= 80 && evt.getY() >= 0 && evt.getY() <= 200)){
+                        if(focus_button.idx==1)
+							figs.add(new Rect(evt.getX(),evt.getY(),25,25,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));      
+						else if(focus_button.idx==2)
+							figs.add(new Ellipse(evt.getX(),evt.getY(),25,25,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
+						else if(focus_button.idx==3)
+                            figs.add(new Poly(evt.getX(),evt.getY(),25,25,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
+                        else if(focus_button.idx==4)
+                            figs.add(new Line(evt.getX(),evt.getY(),25,25,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
+                        repaint();
+
+                    }
+                    focus_button = null;
+                    for (Botao but: buts) {
+                        if (but.clicked(evt.getX(), evt.getY())){
+                            focus_button = but;
+                        }
+                    }
+                    if (focus_button!= null) {
+                        buts.remove(focus_button);
+                        buts.add(focus_button);
+                    }
         			focus = null;
         			for(Figure fig: figs) {
                         if (fig.clicked(evt.getX(), evt.getY())){
@@ -144,6 +193,9 @@ class ListFrame extends JFrame {
         super.paint(g);
         for (Figure fig: this.figs) {
             fig.paint(g, fig == focus);
+        }
+        for (Botao but: this.buts) {
+            but.paint(g, but == focus_button);
         }
         
     }
