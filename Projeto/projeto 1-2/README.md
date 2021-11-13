@@ -1,6 +1,4 @@
 # MANUAL DE INSTRUÇÕES
-![ListApp](https://user-images.githubusercontent.com/88343369/141599919-d1273719-7537-4789-8aa2-83369f269d23.png)
-
 ## Tecla r - Gera um novo retângulo aleatório na tela;
 ## Tecla e - Gera uma nova elipse aleatória na tela;
 ## Tecla l - Gera uma linha aleatória na tela;
