@@ -198,10 +198,10 @@ class ListFrame extends JFrame {
         		public void mousePressed(MouseEvent evt) {
         			if (focus_button!= null && !(evt.getX() >= 0 && evt.getX() <= 80 && evt.getY() >= 0 && evt.getY() <= 200)){
                         if(focus_button.idx==1)
-							figs.add(new Rect(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));      
-						else if(focus_button.idx==2)
-							figs.add(new Ellipse(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
-						else if(focus_button.idx==3)
+			    figs.add(new Rect(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));      
+			else if(focus_button.idx==2)
+			    figs.add(new Ellipse(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
+			else if(focus_button.idx==3)
                             figs.add(new Poly(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
                         else if(focus_button.idx==4)
                             figs.add(new Triangle(evt.getX(),evt.getY(),50,50,angulo,colors[rand.nextInt(10)],colors[rand.nextInt(10)]));
