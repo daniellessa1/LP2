@@ -27,6 +27,8 @@ public class Botao implements IVisible {
 
     public void paint (Graphics g, Boolean focused){
         Graphics2D g2d = (Graphics2D) g;
+        
+        g2d.drawString("Menu", SPC + 3, SPC + DIM - 3);
 
         g2d.setColor(focused ? Color.GRAY : Color.LIGHT_GRAY);
         g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
