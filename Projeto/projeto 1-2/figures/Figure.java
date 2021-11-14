@@ -8,15 +8,16 @@ import java.io.Serializable;
 import ivisible.IVisible;
 
 public abstract class Figure implements IVisible, Serializable {
-    public int x, y;
-    public int w, h;
+    public int x, y, w, h, angle;
     public Color contorno, fundo;
     
-    public Figure (int x, int y, int w, int h, Color contorno, Color fundo) {
+    
+    public Figure (int x, int y, int w, int h,int angle, Color contorno, Color fundo) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        this.angle = angle;
         this.contorno = contorno;
         this.fundo = fundo;
     }
