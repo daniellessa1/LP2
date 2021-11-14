@@ -14,9 +14,7 @@
 
 
 ## Comandos:
-### Tecla f1 - Salva o projeto em um arquivo binário;
-### Tecla f2 - Carrega o último projeto salvo em um arquivo binário;
-### Tecla f3 - Salva o projeto em um arquivo vetorial SVG;
+### Tecla f1 - Salva o projeto em um arquivo vetorial SVG;
 ### Tecla r - Gera um novo retângulo na tela;
 ### Tecla e - Gera uma nova elipse na tela;
 ### Tecla l - Gera uma nova linha na tela;
