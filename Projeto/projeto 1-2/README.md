@@ -2,14 +2,14 @@
 
 ## Para compilar e executar o programa é necessário adicionar o arquivo org.jfree.svg.jar.
 ### Para compilar:
-### Em sistemas Unix-like :
+#### Em sistemas Unix-like :
 #### javac ListApp.java -classpath org.jfree.svg.jar:.
-### No windows:
+#### No windows:
 #### javac ListApp.java -classpath org.jfree.svg.jar;.
-### Para executar: 
-### Em sistemas Unix-like :
+#### Para executar: 
+#### Em sistemas Unix-like :
 #### java -cp org.jfree.svg.jar:. ListApp
-### No windows:
+#### No windows:
 #### java -cp org.jfree.svg.jar;. ListApp
 
 
