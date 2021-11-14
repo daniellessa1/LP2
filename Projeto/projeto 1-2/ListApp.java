@@ -40,9 +40,26 @@ class ListFrame extends JFrame {
         buts.add(new Botao(5, new Line(0,0,0,0,angulo,Color.BLACK,Color.BLACK)));
         
 
-       this.addWindowListener (
+        try {
+            FileInputStream f = new FileInputStream("proj.bin");
+            ObjectInputStream o = new ObjectInputStream(f);
+            this.figs = (ArrayList<Figure>) o.readObject();
+            o.close();
+        } catch (Exception x) {
+            System.out.println("Erro!, não foi possivel abrir o arquivo" +x);
+        }
+        this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+                    try {
+                        FileOutputStream f = new FileOutputStream("proj.bin");
+                        ObjectOutputStream o = new ObjectOutputStream(f);
+                        o.writeObject(figs);
+                        o.flush();
+                        o.close();
+                    } catch (Exception x) {
+                        System.out.println("Erro!, não foi possivel criar o arquivo" +x);
+                    }
                     System.exit(0);
                 }
             }
@@ -52,25 +69,6 @@ class ListFrame extends JFrame {
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
                    if (evt.getKeyCode() == KeyEvent.VK_F1){
-                        try {
-                            FileOutputStream f = new FileOutputStream("proj.bin");
-                            ObjectOutputStream o = new ObjectOutputStream(f);
-                            o.writeObject(figs);
-                            o.flush();
-                            o.close();
-                        } catch (Exception x) {
-                            System.out.println("Erro!, não foi possivel criar o arquivo" +x);
-                        }
-                    } else if(evt.getKeyCode() == KeyEvent.VK_F2){
-                        try {
-                            FileInputStream f = new FileInputStream("proj.bin");
-                            ObjectInputStream o = new ObjectInputStream(f);
-                            figs = (ArrayList<Figure>) o.readObject();
-                            o.close();
-                        } catch (Exception x) {
-                            System.out.println("Erro!, não foi possivel abrir o arquivo" +x);
-                        }
-                    } else if(evt.getKeyCode() == KeyEvent.VK_F3){
                         try {
                             SVGGraphics2D gSVG = new SVGGraphics2D(getWidth(), getHeight());
                 
