@@ -1,19 +1,15 @@
 # MANUAL DE INSTRUÇÕES
 
-![ListApp](https://user-images.githubusercontent.com/88343369/141684146-fb6ba49e-f4eb-498e-8a01-dc610fb766c7.png)
-
-## Como Executar:
-
-### O programa depende da biblioteca JFreeSVG para gerar os arquivos SVG, portanto, é necessário adicionar o arquivo org.jfree.svg.jar ao compilar e executar o programa. 
+## Para compilar e executar o programa é necessário adicionar o arquivo org.jfree.svg.jar.
 ### Para compilar:
-### Sistemas Unix-like :
+### Em sistemas Unix-like :
 #### javac ListApp.java -classpath org.jfree.svg.jar:.
-### Windows:
+### No windows:
 #### javac ListApp.java -classpath org.jfree.svg.jar;.
 ### Para executar: 
-### Sistemas Unix-like :
+### Em sistemas Unix-like :
 #### java -cp org.jfree.svg.jar:. ListApp
-### Windows:
+### No windows:
 #### java -cp org.jfree.svg.jar;. ListApp
 
 
